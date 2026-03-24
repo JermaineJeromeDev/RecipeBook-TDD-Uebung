@@ -3,9 +3,10 @@ from rest_framework.routers import DefaultRouter
 from .views import RecipeViewSet
 
 router = DefaultRouter()
-# Wir registrieren das ViewSet. Der Name 'recipes' erzeugt automatisch 'recipes-list'
-router.register(r'recipes', RecipeViewSet, basename='recipes')
+# Wichtig: 'recipes-list' als Pfad, damit reverse('recipes-list') funktioniert
+router.register(r'recipes-list', RecipeViewSet, basename='recipes')
 
 urlpatterns = [
     path('', include(router.urls)),
 ]
+
